@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text} from 'react-native';
-import CovidMessage from '../../components/CovidMessage';
+import CovidMessage from '../../components/Covid Message';
 import HomePageMap from '../../components/HomePageMap';
 
 const index = () => {
