@@ -7,11 +7,17 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, Text} from 'react-native';
+import HomeScreen from './src/screens/HomeScreen';
 
-const App: () => Node = () => {
-  return <StatusBar barStyle={'dark-content'} />;
+const App = () => {
+  return (
+    <>
+      <StatusBar barStyle={'dark-content'} />
+      <HomeScreen />
+      <Text>What up?</Text>
+    </>
+  );
 };
 
 export default App;
