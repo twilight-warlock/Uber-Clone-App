@@ -7,15 +7,16 @@
  */
 
 import React from 'react';
-import {StatusBar, Text} from 'react-native';
+import {StatusBar} from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
+import DestinationScreen from './src/screens/DestinationSearchScreen';
 
 const App = () => {
   return (
     <>
       <StatusBar barStyle={'dark-content'} />
-      <HomeScreen />
-      <Text>What up?</Text>
+      {/* <HomeScreen /> */}
+      <DestinationScreen />
     </>
   );
 };
