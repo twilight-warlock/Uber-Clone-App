@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import UberType from './UberType';
+import data from '../../assets/data/types';
 
 const UberTypes = () => {
   return (
     <View>
-      <Text>Uber types</Text>
-      <UberType />
+      <FlatList data={data} renderItem={({item}) => <UberType data={item} />} />
     </View>
   );
 };

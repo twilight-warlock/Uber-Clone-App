@@ -2,32 +2,40 @@ import React from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const UberType = () => {
+const UberType = ({
+  data: {id, type, imgAdd, people, duration, price, cutoff},
+}) => {
+  const currentDate = new Date();
+  const dropoffTime = new Date(currentDate.getTime() + duration * 60000)
+    .toTimeString()
+    .split(' ')[0]
+    .slice(0, 5);
+
   return (
-    <View style={styles.Container}>
-      <Image
-        source={require('../../assets/images/UberX.jpeg')}
-        style={styles.Image}
-      />
+    <View style={styles.Container} key={id}>
+      <Image source={imgAdd} style={styles.Image} />
       <View style={styles.MiddleContainer}>
         <View style={styles.Vertical}>
-          <Text style={styles.Name}>UberX</Text>
+          <Text style={styles.Name}>{type}</Text>
           <Text style={styles.People}>
-            <Ionicons name="person" size={15} /> 3
+            <Ionicons name="person" size={15} /> {people}
           </Text>
         </View>
-        <Text style={styles.Time}>12:05 dropoff</Text>
+        <Text style={styles.Time}>{dropoffTime} dropoff</Text>
       </View>
       <View style={styles.LastContainer}>
-        <Text style={styles.Price}>$25.99</Text>
-        <Text style={styles.Cutoff}>$29.50</Text>
+        <Text style={styles.Price}>${price.toFixed(2)}</Text>
+        {cutoff ? (
+          <Text style={styles.Cutoff}>${cutoff.toFixed(2)}</Text>
+        ) : (
+          <></>
+        )}
       </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
   Container: {
-    // backgroundColor: '#ddd',
     margin: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -47,7 +55,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   Name: {
-    fontSize: 24,
+    fontSize: 23,
     fontWeight: 'bold',
     paddingRight: 10,
   },
