@@ -33,7 +33,7 @@ const index = () => {
             useOnPlatform: 'web',
           }}
           query={{
-            key: '',
+            key: process.env.PLACES_API,
             language: 'en',
           }}
         />
