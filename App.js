@@ -10,13 +10,15 @@ import React from 'react';
 import {StatusBar} from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
 import DestinationScreen from './src/screens/DestinationSearchScreen';
+import SearchResults from './src/screens/SearchResultsScreen';
 
 const App = () => {
   return (
     <>
       <StatusBar barStyle={'dark-content'} />
       {/* <HomeScreen /> */}
-      <DestinationScreen />
+      {/* <DestinationScreen /> */}
+      <SearchResults />
     </>
   );
 };
