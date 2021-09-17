@@ -6,9 +6,10 @@ import UberTypes from '../../components/UberTypes';
 const index = () => {
   return (
     <View>
-      <HomePageMap />
+      <View style={{height: 450}}>
+        <HomePageMap />
+      </View>
       <UberTypes />
-      <Text>Yo bro who got you smiling like that?</Text>
     </View>
   );
 };
