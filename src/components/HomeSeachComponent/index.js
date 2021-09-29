@@ -1,12 +1,12 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, SafeAreaView} from 'react-native';
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 import MaterialCommunity from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 
 const HomeSearch = () => {
   return (
-    <View>
+    <SafeAreaView>
       <View style={styles.InputBox}>
         <Text style={styles.Text}>Enter pickup point</Text>
         <View style={styles.TypeBox}>
@@ -27,7 +27,7 @@ const HomeSearch = () => {
         </View>
         <Text style={styles.RecentText}>Home</Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     borderRightColor: '#ccc',
     borderRightWidth: 0.5,
-    paddingRight: 45,
+    paddingRight: 25,
   },
   TypeBox: {
     flexDirection: 'row',

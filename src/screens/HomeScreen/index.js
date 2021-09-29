@@ -8,7 +8,7 @@ import HomePageMap from '../../components/HomePageMap';
 const index = () => {
   return (
     <View>
-      <View style={{height: Dimensions.get('window').height - 350}}>
+      <View style={{height: Dimensions.get('window').height - 400}}>
         <HomePageMap />
       </View>
       <CovidMessage />
