@@ -1,8 +1,17 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import cars from "../../assets/data/cars.js"
 
 const HomePageMap = () => {
+  const getImage = (type)=>{
+    if(type=="Comfort")
+      return require('../../assets/images/top-Comfort.png')
+    if(type=="UberXL")
+      return require('../../assets/images/top-UberXL.png')
+    return require('../../assets/images/top-UberX.png')
+    
+  }
   return (
     <>
       <MapView
@@ -14,24 +23,18 @@ const HomePageMap = () => {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>
-        <Marker coordinate={{latitude: 37.78825, longitude: -122.4324}}>
+        {cars.map((car,index)=>{
+          return (
+            <Marker coordinate={{latitude: car.latitude, longitude: car.longitude}} key={index}>
           <Image
-            source={require('../../assets/images/top-UberX.png')}
-            style={{width: 80, height: 80, resizeMode: 'contain'}}
+            source={getImage(car.type)}
+            style={{width: 50, height: 50, resizeMode: 'contain',transform:[{
+              rotate:`${car.heading}deg`
+            }]}}
           />
         </Marker>
-        <Marker coordinate={{latitude: 37.78828, longitude: -122.4385}}>
-          <Image
-            source={require('../../assets/images/top-UberXL.png')}
-            style={{width: 80, height: 80, resizeMode: 'contain'}}
-          />
-        </Marker>
-        <Marker coordinate={{latitude: 37.78878, longitude: -122.4425}}>
-          <Image
-            source={require('../../assets/images/top-Comfort.png')}
-            style={{width: 80, height: 80, resizeMode: 'contain'}}
-          />
-        </Marker>
+          )
+        })}
       </MapView>
     </>
   );
